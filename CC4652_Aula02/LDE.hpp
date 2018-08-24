@@ -14,14 +14,14 @@ private:
     int n;
     No<T> *first;
 public:
-    LDE() : n(0), first(nullptr) {}
+    LDE() : n(0), first(NULL) {}
 
     bool insert(T value) {
-        No<T>* nNo = new No<T>(value);
-        if (nNo == nullptr) {
+        No<T>* novo = new No<T>(value);
+        if (novo == NULL) {
             return false;
         }
-        No<T>* preceding = nullptr;
+        No<T>* preceding = NULL;
         No<T>* current = first;
 
         while (current && current->value < value) {
@@ -29,11 +29,11 @@ public:
             current = current->next;
         }
 
-        nNo->next = current;
-        if (preceding != nullptr) {
-            preceding->next = nNo;
+        novo->next = current;
+        if (preceding != NULL) {
+            preceding->next = novo;
         } else {
-            first = nNo;
+            first = novo;
         }
         n++;
         return true;
@@ -41,17 +41,23 @@ public:
 
     bool remove(T value){
         No<T>* current = first;
-        No<T>* preceding = nullptr;
+        No<T>* preceding = NULL;
 
         while(current && current->value < value){
             preceding = current;
             current = current->next;
         }
         if(current && current->value ==  value){
-            preceding->next = current->next;
+            if(preceding) {
+                preceding->next = current->next;
+            }else{
+                first=current->next;
+            }
+
             delete current;
             return true;
         } else{
+            std::cout << "Erro ao remover: Valor nao encontrado" << std::endl;
             return false;
         }
 
@@ -59,20 +65,18 @@ public:
 
     bool search(T value){
 
-        No<T> *preceding = nullptr;
-        No<T> *current = first;
+        No<T>* current = first;
 
-        while(current && value > current->value){
-            preceding = current;
+        while(current->next != NULL && current->value < value){
             current = current->next;
         }
-        if(current->value != value) {
-            std::cout << "Valor nao encontrado " << std::endl;
-            return false;
-        }else {
-            std::cout << "Valor encontrado: " << current->value << std::endl;
+        if(current->value == value) {
+            std::cout << "Valor encontrado: " << value << std::endl;
             return true;
 
+        }else {
+            std::cout << "Erro na busca: Valor nao encontrado " << std::endl;
+            return false;
         }
 
     }
