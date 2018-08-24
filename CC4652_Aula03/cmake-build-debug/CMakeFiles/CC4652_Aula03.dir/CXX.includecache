@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula03/LDDE.hpp
+iostream
+-
+No.hpp
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula03/No.hpp
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula03/No.hpp
+iostream
+-
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula03/main.cpp
+iostream
+-
+LDDE.hpp
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula03/LDDE.hpp
+
