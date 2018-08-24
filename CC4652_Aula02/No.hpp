@@ -14,7 +14,7 @@ class No {
 private:
     T value;
     No<T>* next;
-    No(T value): value(value), next(nullptr){}
+    No(T value): value(value), next(NULL){}
 public:
     ~No(){
         std::cout<< "Deletando no" << std::endl;
@@ -24,3 +24,4 @@ public:
 };
 
 #endif //CC4652_AULA02_NO_HPP
+

@@ -6,6 +6,7 @@
 #ifndef CC4652_AULA02_LDE_HPP
 #define CC4652_AULA02_LDE_HPP
 
+
 template <typename T>
 
 class LDE {
@@ -13,58 +14,65 @@ private:
     int n;
     No<T> *first;
 public:
-    LDE() : n(0), first(NULL) {}
+    LDE() : n(0), first(nullptr) {}
 
     bool insert(T value) {
-        No<T>* novo = new No<T>(value);
-        if (novo == nullptr) {
+        No<T>* nNo = new No<T>(value);
+        if (nNo == nullptr) {
             return false;
         }
-        No<T> *preceding = nullptr;
-        No<T> *current = first;
+        No<T>* preceding = nullptr;
+        No<T>* current = first;
 
-        while (current && value > current->value) {
+        while (current && current->value < value) {
             preceding = current;
             current = current->next;
         }
 
-        novo->next = current;
+        nNo->next = current;
         if (preceding != nullptr) {
-            preceding->next = novo;
+            preceding->next = nNo;
         } else {
-            first = novo;
+            first = nNo;
         }
         n++;
         return true;
     }
 
     bool remove(T value){
-        if(n<=0){
-            std::cout<<"Vazio"<<std::endl;
-            return false;
-        }
-
-        No<T> *preceding = nullptr;
-        No<T> *current = first;
-
-    }
-
-    No<T>* search(T value){
-
-        No<T> *preceding = nullptr;
-        No<T> *current = first;
+        No<T>* current = first;
+        No<T>* preceding = nullptr;
 
         while(current && current->value < value){
             preceding = current;
             current = current->next;
         }
-        if(value != current->value){
-            std::cout<<"Valor nao encontrado" << std::endl;
-            return 0;
-        }else{
-            std::cout << "Valor encontrado" << std::endl;
-            std::cout << current->value << std::endl;
-            return current;
+        if(current && current->value ==  value){
+            preceding->next = current->next;
+            delete current;
+            return true;
+        } else{
+            return false;
+        }
+
+    }
+
+    bool search(T value){
+
+        No<T> *preceding = nullptr;
+        No<T> *current = first;
+
+        while(current && value > current->value){
+            preceding = current;
+            current = current->next;
+        }
+        if(current->value != value) {
+            std::cout << "Valor nao encontrado " << std::endl;
+            return false;
+        }else {
+            std::cout << "Valor encontrado: " << current->value << std::endl;
+            return true;
+
         }
 
     }
