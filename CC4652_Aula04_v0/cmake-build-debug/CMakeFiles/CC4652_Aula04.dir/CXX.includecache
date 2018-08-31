@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula04/FEC.hpp
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula04/main.cpp
+iostream
+-
+FEC.hpp
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula04/FEC.hpp
+
