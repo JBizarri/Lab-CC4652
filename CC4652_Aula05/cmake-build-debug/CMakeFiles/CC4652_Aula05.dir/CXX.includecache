@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula05/Arvore.hpp
+No.hpp
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula05/No.hpp
+iostream
+-
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula05/No.hpp
+
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula05/main.cpp
+iostream
+-
+Arvore.hpp
+C:/Users/unifjbizarri/CLionProjects/CC4652_Aula05/Arvore.hpp
+
