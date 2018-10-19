@@ -23,6 +23,14 @@ private:
             erd(n->dir);
         }
     }
+
+    void red(No<T>* n){
+        if(n){
+            cout<< n->valor<<endl;
+            red(n->esq);
+            red(n->dir);
+        }
+    }
 public:
     Arvore(): raiz(nullptr), n(0){
     }
@@ -39,6 +47,7 @@ public:
             anterior = atual;
             if (valor <= atual->valor) {
                 atual = atual->esq;
+
             } else {
                 atual = atual->dir;
             }
@@ -49,53 +58,123 @@ public:
                 raiz=novo;
             }else{
                 if(valor <= anterior->valor){
-                    anterior->esq = novo;
+                    anterior->esq = novo;balancear(raiz);
                 }else{
                     anterior->dir = novo;
+
                 }
             }
-
-
         n++;
         return true;
     }
 
     void leftRotate(No<T>* x){
-        No<T>* y = x->esq;
-        No<T>* b = y-> esq;
-        No<T>* pai = x->pai;
+        No<T>* y = x->dir;
+        No<T>* b = y->esq;
+        No<T>* pai = x;
 
-        x->pai = y;
-        y->esq = x;
-        x->dir = b;
+        y->esq = pai;
+        pai->dir = b;
+
         if(b)
-            b->pai = x;
+            b->pai = pai;
 
-        y->pai = pai;
-        if(y->pai){
-            if(y->valor <= y->pai->valor){
-                pai->esq = y;
-            }else{
-                pai->dir = y;
-            }
-        }else{
+        if(x==raiz){
             raiz = y;
+            y->pai = x->pai;
+        }else {
+            if (pai->pai->dir == pai)
+                pai->pai->dir = y;
+            else
+                pai->pai->esq = y;
+            y->pai = pai->pai;
+
+        }
+        pai->pai = y;
+        if(y->dir){
+            balancear(y->dir);
         }
     }
 
-    void rightRotate(No<T>* y){
-        No<T>* x = y->dir;
+    void rightRotate(No<T>* x){
+        No<T>* y = x->esq;
+        No<T>* b = y->dir;
+        No<T>* pai = x;
+
+        y->dir = pai;
+        pai->esq = b;
+
+        if(b)
+            b->pai = pai;
+
+        if(x==raiz){
+            raiz = y;
+            y->pai = x->pai;
+        }else {
+            if (pai->pai->esq == pai)
+                pai->pai->esq = y;
+            else
+                pai->pai->dir = y;
+            y->pai = pai->pai;
+
+        }
+        pai->pai = y;
+        if(y->esq){
+            balancear(pai->esq);
+        }
+
     }
 
-    void rotateTeste(){
-        leftRotate(raiz);
-        rightRotate(raiz);
-        erd();
+   int altura(No<T>* n){
+       int dir, esq;
 
+       if(n== nullptr)
+           return 0;
+       esq = altura(n->esq);
+       dir = altura(n->dir);
+       if(esq > dir)
+           return esq+1;
+       else
+           return dir+1;
+   }
+
+    int diferenca(No<T>* n){
+        int altDir = altura(n->dir);
+        int altEsq = altura(n->esq);
+        return altEsq - altDir;
     }
+
+    void balancear(No<T>* n){
+        int fb = diferenca(n);
+        if (fb>1){
+            if (diferenca(n->esq) > 0) {
+                rightRotate(n);
+            }
+            else {
+                leftRotate(n);
+                rightRotate(n);
+            }
+
+        }
+        else if (fb < -1){
+            if (diferenca(n->dir) > 0) {
+                leftRotate(n);
+            }
+            else{
+                rightRotate(n);
+                leftRotate(n);
+
+            }
+        }
+    }
+
 
     void erd(){
         erd(raiz);
+    }
+
+    void red(){
+        red(raiz);
     }
 
 };
