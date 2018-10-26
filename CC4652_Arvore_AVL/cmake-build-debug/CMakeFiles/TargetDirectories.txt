@@ -1,3 +1,3 @@
-C:/Users/unifjbizarri/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/CC4652_Arvore_AVL.dir
-C:/Users/unifjbizarri/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/unifjbizarri/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/CC4652_Arvore_AVL.dir
+C:/Users/User/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/CC4652_Arvore_AVL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

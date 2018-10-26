@@ -14,6 +14,9 @@ int main() {
     a.insere(4);
     a.insere(6);
     a.insere(8);*/
+    cout << "ERD:" << endl;
     a.erd();
+    cout << "RED:" << endl;
+    a.red();
     return 0;
 }

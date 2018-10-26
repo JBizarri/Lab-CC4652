@@ -53,18 +53,19 @@ public:
             }
         }
 
-            novo->pai = anterior;
-            if(!anterior){
-                raiz=novo;
-            }else{
-                if(valor <= anterior->valor){
-                    anterior->esq = novo;balancear(raiz);
-                }else{
-                    anterior->dir = novo;
 
-                }
+        if(anterior){
+            novo->pai=anterior;
+            if(valor<=anterior->valor){
+                anterior->esq = novo;
+            }else{
+                anterior->dir = novo;
             }
+        }else{
+            raiz = novo;
+        }
         n++;
+        balancear(novo);
         return true;
     }
 
@@ -125,23 +126,23 @@ public:
 
     }
 
-   int altura(No<T>* n){
-       int dir, esq;
+    int altura(No<T>* n){
+        int dir, esq;
 
-       if(n== nullptr)
-           return 0;
-       esq = altura(n->esq);
-       dir = altura(n->dir);
-       if(esq > dir)
-           return esq+1;
-       else
-           return dir+1;
-   }
+        if(n== nullptr)
+            return 0;
+        esq = altura(n->esq);
+        dir = altura(n->dir);
+        if(esq > dir)
+            return esq+1;
+        else
+            return dir+1;
+    }
 
     int diferenca(No<T>* n){
         int altDir = altura(n->dir);
         int altEsq = altura(n->esq);
-        return altEsq - altDir;
+        return altDir - altEsq;
     }
 
     void balancear(No<T>* n){
