@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/Hash.hpp
+LDE.hpp
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/LDE.hpp
+vector
+-
+iostream
+-
+
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/LDE.hpp
+iostream
+-
+No.hpp
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/No.hpp
+
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/No.hpp
+iostream
+-
+
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/main.cpp
+iostream
+-
+LDE.hpp
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/LDE.hpp
+Hash.hpp
+C:/Users/unifjbizarri.FCANET/CLionProjects/CC4652_Hash/Hash.hpp
+ctime
+-
+vector
+-
+
